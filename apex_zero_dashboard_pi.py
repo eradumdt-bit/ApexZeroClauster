@@ -125,7 +125,7 @@ except ImportError:
     ili9341 = None
 
 try:
-    import adafruit_gc9a01
+    import adafruit_gc9a01a as adafruit_gc9a01
 except ImportError:
     adafruit_gc9a01 = None
 
