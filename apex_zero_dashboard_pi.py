@@ -125,10 +125,9 @@ except ImportError:
     ili9341 = None
 
 try:
-    import adafruit_gc9a01a as adafruit_gc9a01
+    from gc9a01 import GC9A01
 except ImportError:
-    adafruit_gc9a01 = None
-
+    GC9A01 = None
 try:
     import RPi.GPIO as GPIO
 except ImportError:
@@ -354,11 +353,10 @@ class SoftCS:
 
 
 def setup_screens(args):
-    if ili9341 is None or adafruit_gc9a01 is None:
-        raise RuntimeError(
-            "Librairies d'ecran manquantes. Installer : "
-            "adafruit-circuitpython-rgb-display adafruit-circuitpython-gc9a01")
-
+    if ili9341 is None or GC9A01 is None:
+    raise RuntimeError(
+        "Librairies d'ecran manquantes. Installer : "
+        "adafruit-circuitpython-rgb-display (et verifier gc9a01.py present)")
     spi = board.SPI()
 
     crt_cs = digitalio.DigitalInOut(board.CE0)
@@ -372,7 +370,7 @@ def setup_screens(args):
     speedo_cs = digitalio.DigitalInOut(board.CE1)
     speedo_dc = digitalio.DigitalInOut(board.D23)
     speedo_rst = digitalio.DigitalInOut(board.D27)
-    speedo = adafruit_gc9a01.GC9A01(
+    speedo = GC9A01(
         spi, cs=speedo_cs, dc=speedo_dc, rst=speedo_rst,
         width=240, height=240, baudrate=32000000,
     )
@@ -380,7 +378,7 @@ def setup_screens(args):
     clock_cs = digitalio.DigitalInOut(board.D5)
     clock_dc = digitalio.DigitalInOut(board.D22)
     clock_rst = digitalio.DigitalInOut(board.D17)
-    clock_scr = adafruit_gc9a01.GC9A01(
+    clock_scr = GC9A01(
         spi, cs=clock_cs, dc=clock_dc, rst=clock_rst,
         width=240, height=240, baudrate=32000000,
     )
