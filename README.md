@@ -1,2 +1,2 @@
-APEX ZERO — Gauge Cluster
+## APEX ZERO — Gauge Cluster
 Real hardware build of a custom instrument cluster: an ILI9341 TFT for the main engine display, two round GC9A01 displays for the digital speedo and clock, and a 28BYJ-48 stepper for the analog speed needle — all driven by a Raspberry Pi 4. An Arduino Mega translates the car's original sender/connector signals (RPM, speed, warning lamps) into a telemetry frame the Pi consumes over UART.
