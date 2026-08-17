@@ -1,2 +1,2 @@
-# ApexZeroClauster
-Compteur numérique/analogique sur-mesure pour un projet de voiture cyberpunk — Raspberry Pi 4 pilotant des écrans TFT SPI + une aiguille sur moteur pas-à-pas, synchronisé aux signaux réels de la voiture via un pont UART Arduino Mega.
+APEX ZERO — Gauge Cluster
+Real hardware build of a custom instrument cluster: an ILI9341 TFT for the main engine display, two round GC9A01 displays for the digital speedo and clock, and a 28BYJ-48 stepper for the analog speed needle — all driven by a Raspberry Pi 4. An Arduino Mega translates the car's original sender/connector signals (RPM, speed, warning lamps) into a telemetry frame the Pi consumes over UART.
